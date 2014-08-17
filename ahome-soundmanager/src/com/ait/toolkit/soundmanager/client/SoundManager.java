@@ -205,7 +205,7 @@ public final class SoundManager {
 	 * onPosition() events being fired.
 	 */
 	public static native void onPosition(String id, int offset, SoundPositionHandler callback)/*-{
-		return $wnd.soundManager
+		$wnd.soundManager
 				.onPosition(
 						id,
 						offset,
