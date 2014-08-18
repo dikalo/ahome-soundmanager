@@ -25,7 +25,7 @@ import com.ait.toolkit.soundmanager.client.SoundReadyHandler;
  * This is the entry point to the client portion of the web application.
  */
 @EntryPoint
-public class AhomeDesk {
+public class Demo {
 
 	@PostConstruct
 	public void init() {
