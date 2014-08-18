@@ -1,4 +1,4 @@
 ahome-soundmanager
 ==================
 
-Easely manage sounds in your GWT application
+Easy to use cross-platform sound capabilities for (GWT) projects.
