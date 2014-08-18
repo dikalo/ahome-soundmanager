@@ -7,7 +7,7 @@ Easy to use cross-platform sound capabilities for (GWT) projects.
 ##Getting started with ahome-soundmananger
 1) Download the jar from our opensource repository : opensource.ahome-it.com
 
-2) Inherit the ahome-ace module
+2) Inherit the SoundManager module
 
 ```xml
    <inherits name="com.ait.toolkit.soundmanager.SoundManager" />
