@@ -183,6 +183,22 @@ public class SoundManagerConfig extends JsObject {
 	}-*/;
 
 	/**
+	 * Queues an event callback/handler for successful initialization and "ready to use" state of SoundManager 2. An optional scope parameter can be specified; if none, the
+	 * callback is scoped to the window. If onready() is called after successful initialization, the callback will be executed immediately. The onready() queue is processed before
+	 * soundManager.onload().
+	 */
+	public native void setOnReady(SoundManagerLoadCallback callback)/*-{
+		var peer = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		peer.onready = function() {
+			callback.@com.ait.toolkit.soundmanager.client.SoundManagerLoadCallback::onLoadSuccess()();
+		};
+		peer.ontimeout = function(s) {
+			var status = @com.ait.toolkit.soundmanager.client.SoundStatus::new(Lcom/google/gwt/core/client/JavaScriptObject;)(s);
+			callback.@com.ait.toolkit.soundmanager.client.SoundManagerLoadCallback::onLoadError(Lcom/ait/toolkit/soundmanager/client/SoundStatus;)(status);
+		};
+	}-*/;
+
+	/**
 	 * Queues an event callback/handler for SM2 init failure, processed at (or immediately, if added after) SM2 initialization has failed, just before soundManager.onerror() is
 	 * called. An optional scope parameter can be specified; if none, the callback is scoped to the window. Additionally, a status object containing success and error->type
 	 * parameters is passed as an argument to your callback.

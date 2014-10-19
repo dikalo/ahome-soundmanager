@@ -51,6 +51,13 @@ public final class SoundManager {
 		setup(DEFAULT_CONFIG.getJsObj());
 	}
 
+	public static void start(SoundManagerLoadCallback callback) {
+		SoundManagerConfig config = new SoundManagerConfig();
+		config.setUrl(SWF_URL);
+		config.setOnReady(callback);
+		setup(config.getJsObj());
+	}
+
 	/**
 	 * Normalized method which checks canPlayMIME() and canPlayURL() as needed to estimate the playability of an HTML link; this means both the href and type attributes, if
 	 * provided, are checked for matching file extension and/or MIME type patterns.
