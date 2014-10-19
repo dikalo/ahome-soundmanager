@@ -20,7 +20,6 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.Window;
 
 /**
  * SoundManager 2 makes it easier to play audio in your GWT application
@@ -41,7 +40,7 @@ public final class SoundManager {
 		DEFAULT_CONFIG.setOnTimeout(new SoundTimeOutHandler() {
 			@Override
 			public void onTimeOut(SoundStatus status) {
-				Window.alert(status.getStatus() + ", " + status.getErrorType());
+				log(status.getStatus() + ", " + status.getErrorType());
 			}
 		});
 
@@ -485,6 +484,12 @@ public final class SoundManager {
 
 	private static native void setup(JavaScriptObject config)/*-{
 		$wnd.soundManager.setup(config);
+	}-*/;
+
+	private static native void log(String msg)/*-{
+		if ($wnd.console) {
+			$wnd.console.log(msg);
+		}
 	}-*/;
 
 }
